@@ -38,7 +38,7 @@ if [ ! -d "/opt/ros/$ROS_DISTRO/" ]; then
 fi
 
 # Check if the XRCEAgent is installed 
-if ! command -v micro-xrce-dds-agent &> /dev/null
+if ! command -v MicroXRCEAgent &> /dev/null
 then
     echo "Installing micro-ROS agent"
     # Check if it is running as ROOT
@@ -46,7 +46,18 @@ then
         then echo "Please run as root"
         exit
     fi
-    sudo snap install micro-xrce-dds-agent
+    # Clone, compile and install   XRCEAgent
+    pushd ~/ > /dev/null
+        git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+        cd Micro-XRCE-DDS-Agent
+        mkdir build
+        pushd build/ > /dev/null
+            cmake ..
+            make -j8
+            sudo make install
+            sudo ldconfig
+        popd > /dev/null
+    popd > /dev/null
 fi
 
 # Check if ARM GCC compiler is installed
