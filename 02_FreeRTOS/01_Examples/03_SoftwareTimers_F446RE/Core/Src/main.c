@@ -22,6 +22,10 @@
 #include "usart.h"
 #include "gpio.h"
 
+#include "FreeRTOS.h"
+#include "timers.h"
+#include "task.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -56,6 +60,12 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static TimerHandle_t timer;
+
+void timer_callback(TimerHandle_t xTimer) {
+	UNUSED(xTimer);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+}
 
 /* USER CODE END 0 */
 
@@ -89,7 +99,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+#if 0
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -102,6 +112,14 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+#endif
+  timer = xTimerCreate("Timer_example",
+		  500U,
+		  pdTRUE,
+		  NULL,
+		  timer_callback);
+  xTimerStart(timer, 0U);
+  vTaskStartScheduler();
   while (1)
   {
     /* USER CODE END WHILE */
