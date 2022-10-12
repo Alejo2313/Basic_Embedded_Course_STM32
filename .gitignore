@@ -1,6 +1,10 @@
 **/Debug
 **/Build
-
+**/install
+**/log
+**/microROS/firmware
+**/build
+**/microROS/include/
 # Prerequisites
 *.d
 

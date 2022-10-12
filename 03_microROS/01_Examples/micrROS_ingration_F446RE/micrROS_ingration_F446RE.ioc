@@ -1,6 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
-FREERTOS.IPParameters=Tasks01
+FREERTOS.IPParameters=Tasks01,configUSE_POSIX_ERRNO
 FREERTOS.Tasks01=defaultTask,24,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.configUSE_POSIX_ERRNO=1
 File.Version=6
 KeepUserPlacement=false
 Mcu.CPN=STM32F446RET6
@@ -48,6 +49,7 @@ NVIC.SysTick_IRQn=true\:15\:0\:true\:false\:false\:true\:true\:true\:false
 NVIC.TIM1_UP_TIM10_IRQn=true\:15\:0\:false\:false\:true\:false\:false\:true\:true
 NVIC.TimeBase=TIM1_UP_TIM10_IRQn
 NVIC.TimeBaseIP=TIM1
+NVIC.USART2_IRQn=true\:5\:0\:false\:false\:true\:true\:true\:true\:true
 NVIC.UsageFault_IRQn=true\:0\:0\:false\:false\:true\:false\:true\:false\:false
 PA13.GPIOParameters=GPIO_Label
 PA13.GPIO_Label=TMS

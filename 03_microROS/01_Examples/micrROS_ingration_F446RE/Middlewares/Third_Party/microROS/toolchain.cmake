@@ -7,8 +7,8 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 set(PLATFORM_NAME "custom")
 
 # Makefile flags
-set(ARCH_CPU_FLAGS "-mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Drivers/STM32F4xx_HAL_Driver/Inc\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Middlewares/Third_Party/FreeRTOS/Source/include\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Drivers/CMSIS/Include\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Drivers/CMSIS/Device/ST/STM32F4xx/Include\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy\" -I\"/home/alejo/STM32CubeIDE/workspace/micrROS_ingration_F446RE/Core/Inc\" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb")
-set(ARCH_OPT_FLAGS @ARCH_OPT_FLAGS@)
+set(ARCH_CPU_FLAGS "-mcpu=cortex-m4 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb")
+
 
 set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER arm-none-eabi-g++)

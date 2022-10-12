@@ -89,7 +89,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+#if 0
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -102,6 +102,10 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+#endif
+
+  create_ros_task();
+  vTaskStartScheduler();
   while (1)
   {
     /* USER CODE END WHILE */

@@ -85,12 +85,10 @@ if [ "$UROS_TRANSPORT" == "udp" ]; then
       update_meta "microxrcedds_client" "UCLIENT_PROFILE_DISCOVERY=ON"
       
       echo "Configured $UROS_TRANSPORT mode with agent at $UROS_AGENT_IP:$UROS_AGENT_PORT"
-
+      echo "Configure colcon.meta before build!"
 elif [ "$UROS_TRANSPORT" == "serial" ]; then
       echo "Using serial device USART."
-
-      echo "Please check firmware/freertos_apps/microros_nucleo_f767zi_extensions/Src/main.c"
-      echo "for configuring serial device before build."
+      echo "Configure colcon.meta before build!"
 
       update_meta "microxrcedds_client" "UCLIENT_PROFILE_CUSTOM_TRANSPORT=ON"
       update_meta "microxrcedds_client" "UCLIENT_PROFILE_STREAM_FRAMING=ON"

@@ -23,7 +23,7 @@
 /* Includes */
 #include <errno.h>
 #include <stdint.h>
-
+#if 0
 /**
  * Pointer to the current high watermark of the heap usage
  */
@@ -77,3 +77,5 @@ void *_sbrk(ptrdiff_t incr)
 
   return (void *)prev_heap_end;
 }
+#endif
+
